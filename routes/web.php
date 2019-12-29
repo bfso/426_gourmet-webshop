@@ -19,3 +19,7 @@ Route::group(array('prefix' => 'products'), function() {
     Route::get('/', 'ProductController@index')->name('products');
     Route::get('{slug}', 'ProductController@show')->name('products.show');
 });
+
+Route::group(array('prefix' => 'cart'), function() {
+    Route::post('add', 'CartController@add')->name('cart.add');
+});
