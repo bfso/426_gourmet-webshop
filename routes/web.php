@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(array('prefix' => 'products'), function() {
+    Route::get('/', 'ProductController@index')->name('products');
+});
