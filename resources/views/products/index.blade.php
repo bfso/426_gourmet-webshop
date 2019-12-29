@@ -1,3 +1,3 @@
 @foreach($products as $product)
-    {{$product->name}}
+    <a href="{{route('products.show',['slug'=>$product->slug])}}"> {{$product->name}}</a><br>
 @endforeach
