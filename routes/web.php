@@ -23,3 +23,7 @@ Route::group(array('prefix' => 'products'), function() {
 Route::group(array('prefix' => 'cart'), function() {
     Route::post('add', 'CartController@add')->name('cart.add');
 });
+
+
+Route::get('checkout/payment', 'CheckoutController@payment')->name('checkout.payment');
+Route::post('checkout/pay', 'CheckoutController@pay')->name('checkout.pay');
