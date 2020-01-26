@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Shop\Payment\PaymentManager;
+use App\Shop\Payment\PaymentFactory;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -12,14 +12,8 @@ class CheckoutController extends Controller
     }
     
     public function pay(Request $request){
-        $paymentManager = new PaymentManager();
-        if($request->payment_type == 'paypal')
-        {
-            $paymentManager->payWithPayPal();
-        }
-        if($request->payment_type == 'creditcard')
-        {
-            $paymentManager->payWithCreditCard();
-        }
+        $paymentFactory = new PaymentFactory();
+        $payment = $paymentFactory->createPayment($request->payment_type);
+        $payment->pay();
     }
 }
