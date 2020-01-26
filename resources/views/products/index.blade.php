@@ -23,6 +23,7 @@
                             <p class="card-text">
                                 {!! Str::limit($product->description, 30, ' ..') !!}
                             </p>
+                            @include('tags.cloud',['tags'=>$product->tags])
                         </div>
                     </div>
                 @endforeach

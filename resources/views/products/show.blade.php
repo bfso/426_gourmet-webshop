@@ -40,6 +40,8 @@
                     </div>
                 </form>
 
+                @include('tags.cloud',['tags'=>$product->tags])
+
                 <p>
                     <br>
                     <a href="{{route('products.index')}}">@lang('Return to product overview')</a>
