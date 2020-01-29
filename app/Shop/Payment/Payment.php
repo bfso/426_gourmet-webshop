@@ -2,16 +2,16 @@
 
 namespace App\Shop\Payment;
 
-class PaymentFactory
+class Payment
 {
-    public function createPayment($type){
+    public function pay($type){
         if($type == 'paypal')
         {
-            return new PayPalPayment();
+            echo "payWithPayPal";
         }
         if($type == 'creditcard')
         {
-            return new CreditCardPayment();
+            echo "payWithCreditCard";
         }
     }
 }

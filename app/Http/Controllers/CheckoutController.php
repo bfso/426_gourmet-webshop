@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Shop\Payment\PaymentFactory;
+use App\Shop\Payment\Payment;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -12,8 +12,7 @@ class CheckoutController extends Controller
     }
     
     public function pay(Request $request){
-        $paymentFactory = new PaymentFactory();
-        $payment = $paymentFactory->createPayment($request->payment_type);
-        $payment->pay();
+        $payment = new Payment();
+        $payment->pay($request->payment_type);
     }
 }
